@@ -1,16 +1,10 @@
-// requires ES2015 modules to import, which node can't access
-// import express from 'express';
+// just requiring something simply runs it instead of assigning it to a variable
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('./services/passport');
 
-// underlying express server
 const app = express();
 
-// passport.use(new GoogleStrategy());
-app.get('/', (req, res) => {
-  res.send({ bye: 'buddy' });
-});
+require('./routes/authRoutes')(app);
 
 // heroku can inject environment variables during runtime after deploy
 // this is accessed with process.env.PORT
