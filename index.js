@@ -23,7 +23,5 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 
-// heroku can inject environment variables during runtime after deploy
-// this is accessed with process.env.PORT
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
