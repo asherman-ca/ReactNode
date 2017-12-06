@@ -17,7 +17,7 @@ class Header extends Component {
       default:
         return (
           <li>
-            <a onClick={this.props.logOut}>Logout</a>
+            <a href="/api/logout">Logout</a>
           </li>
         );
     }
@@ -30,9 +30,7 @@ class Header extends Component {
           <a href="#" className="left brand-logo">
             Logo
           </a>
-          <ul className="right">
-            <a>{this.renderContent()}</a>
-          </ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
     );
