@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Header extends Component {
   renderContent() {
+    // makes sure we don't flash content while waiting for prop delivery
     switch (this.props.auth) {
       case null:
-        return 'Still logging';
+        return;
       case false:
-        return 'Logged out';
+        return (
+          <li>
+            <a href="/auth/google">Google Login</a>
+          </li>
+        );
       default:
-        return 'Logged in';
+        return (
+          <li>
+            <a onClick={this.props.logOut}>Logout</a>
+          </li>
+        );
     }
   }
 
@@ -33,4 +43,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, actions)(Header);
