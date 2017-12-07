@@ -23,5 +23,16 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 
+if (process.env.NODE_ENV === 'production') {
+  // checks client build directory for route request, returns if it finds something
+  app.use(express.static('client/build'));
+
+  const path = require('path');
+  // if we dont understand the route, we give them the html doc
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

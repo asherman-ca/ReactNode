@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderContent() {
@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">Google Login</a>
+            <a href="/auth/google">David Hus Not Allowed</a>
           </li>
         );
       default:
@@ -26,10 +26,13 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper">
-          <a href="#" className="left brand-logo">
+        <div className="nav-wrapper" style={{ backgroundColor: '#295D29' }}>
+          <Link
+            to={this.props.auth ? '/surveys' : '/'}
+            className="left brand-logo"
+          >
             Logo
-          </a>
+          </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
@@ -41,4 +44,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps, actions)(Header);
+export default connect(mapStateToProps, null)(Header);

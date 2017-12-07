@@ -6,11 +6,15 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
+import Landing from './Landing';
 
 // const Header = () => <h2>Header</h2>;
-const Dashboard = () => <h2>Dashboard</h2>;
+const Dashboard = () => (
+  <div style={{ textAlign: 'center' }}>
+    <h2>Dashboard</h2>
+  </div>
+);
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <span>Landing</span>;
 
 class App extends Component {
   componentDidMount() {
