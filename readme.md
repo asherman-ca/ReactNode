@@ -16,3 +16,11 @@ creates new campaign (aka survey) -user enters email list -survey sent to users
 Useful commands:
 
 -heroku open -heroku logs
+
+Billing Paradigm:
+
+-never accept raw credit card numbers
+-never store credit card numbers
+-always use an outside payment processor
+**fraud and chargebacks are a pain
+**possible to avoid monthly payments/multiple plans

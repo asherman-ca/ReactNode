@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">David Hus Not Allowed</a>
+            <a href="/auth/google">Login</a>
           </li>
         );
       default:
@@ -31,7 +31,7 @@ class Header extends Component {
             to={this.props.auth ? '/surveys' : '/'}
             className="left brand-logo"
           >
-            Logo
+            Emaily
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
