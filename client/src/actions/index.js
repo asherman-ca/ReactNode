@@ -12,6 +12,11 @@ export const logOut = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: null });
 };
 
+export const handleToken = token => async dispatch => {
+  const res = await axios.post('/api/stripe', token);
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
+
 // same as writing
 // export const fetchUser = () => {
 //   return function(dispatch) {

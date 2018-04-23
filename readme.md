@@ -24,3 +24,7 @@ Billing Paradigm:
 -always use an outside payment processor
 **fraud and chargebacks are a pain
 **possible to avoid monthly payments/multiple plans
+
+billings npms:
+-react-stripe-checkout on frontend
+-stripe on backend
